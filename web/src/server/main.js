@@ -8,7 +8,7 @@ var init = require('./init.js');
 var app = express();
 var server = http.createServer(app);
 var port = init.port;
-var io = socket.listen(server);
+var io = socket.listen(server, { path: '/spika/socket.io/'});
 
 // Start Spika as stand alone server
 var spika = require('./index.js');
