@@ -40,7 +40,9 @@
     "quickthumb": "0.0.11",
     "request": "^2.69.0",
     "sinon": "^1.17.1",
-    "socket.io": "^1.3.5"
+    "socket.io": "^1.3.5",
+    "node-gcm": "latest",
+    "apns": "latest"
   },
   "devDependencies": {
     "browserify": "^2.3.0",
