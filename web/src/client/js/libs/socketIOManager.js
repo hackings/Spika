@@ -14,7 +14,7 @@ var ErrorDialog = require('../Views/Modals/ErrorDialog/ErrorDialog');
         
         init:function(){
             
-            this.io = socket.connect(Config.socketUrl, { path: '/spika/socket.io'});
+            this.io = socket.connect(Config.socketUrl);
             
 
             this.io.on('socketerror', function(param){
