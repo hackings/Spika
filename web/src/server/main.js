@@ -7,7 +7,6 @@ var morgan = require('morgan');
 var path = require('path');
 
 var init = require('./init.js');
-var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
 
 var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
 // initialization
