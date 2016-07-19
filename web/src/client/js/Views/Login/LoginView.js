@@ -35,7 +35,8 @@ var LoginView = Backbone.View.extend({
             name:'',
             avatarURL:'',
             roomID:'',
-            id:''
+            id:'',
+            role: ''
         }
 
         if(!_.isUndefined(loginInfo)){
@@ -46,6 +47,7 @@ var LoginView = Backbone.View.extend({
         SS('#input-avatarurl').val(defaultValues.avatarURL);
         SS('#input-room').val(defaultValues.roomID);
         SS('#input-id').val(defaultValues.id);
+        SS('#input-role').val(defaultValues.role);
         
         SS('#btn-enter').on('click',function(){
                              
@@ -55,8 +57,9 @@ var LoginView = Backbone.View.extend({
                 var avatar = SS('#input-avatarurl').val();
                 var room = SS('#input-room').val();
                 var id = SS('#input-id').val();
+                var role = SS('#input-role').val();
 
-                app.login(id,name,avatar,room,function(){
+                app.login(id,name,role,avatar,room,function(){
                     
                     U.goPage('main');
                                         

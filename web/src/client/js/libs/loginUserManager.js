@@ -26,11 +26,12 @@ var User = require('../Models/user.js');
          * @param id
          * @param token
         */
-        setLoginUser: function(name,avatarURL,roomID, id, token){
+        setLoginUser: function(name,role,avatarURL,roomID, id, token){
             
             this.user = new User.Model({
                 id: id,
                 name:name,
+                role: role,
                 avatarURL:avatarURL,
                 token:token
             });

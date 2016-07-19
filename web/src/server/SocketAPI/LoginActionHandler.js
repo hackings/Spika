@@ -53,7 +53,7 @@ LoginActionHandler.prototype.attach = function(io,socket){
             }
             
             
-            UsersManager.addUser(param.userID,user.name,user.avatarURL,param.roomID,user.token);
+            UsersManager.addUser(param.userID,user.name,user.role,user.avatarURL,param.roomID,user.token);
             UsersManager.pairSocketIDandUserID(param.userID,socket.id);            
 
             if(Settings.options.sendAttendanceMessage){

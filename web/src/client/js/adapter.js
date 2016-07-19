@@ -20,6 +20,9 @@ var SpikaAdapter = {
             
         if(!options.user.name)
             return;
+        
+        if(!options.user.role)
+            return;
             
         if(!options.user.roomID)
             return;

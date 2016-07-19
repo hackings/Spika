@@ -28,7 +28,7 @@ ViewHelpers.attach();
 // app instance (global)
 window.app = {
     
-    login:function(userId,name,avatarURL,roomID,callBack){
+    login:function(userId,name,role,avatarURL,roomID,callBack){
         
         var self = this;
         
@@ -41,23 +41,25 @@ window.app = {
         
             UrlGenerator.userLogin(), 
             
-            {userID: userId, name: name, avatarURL: avatarURL, roomID: roomID},
+            {userID: userId, name: name, role: role, avatarURL: avatarURL, roomID: roomID},
             
             // success
             function(data){
                 
                 socketIOManager.emit('login',{
                     name : name,
+                    role: role,
                     avatar : avatarURL,
                     roomID : roomID,
                     userID: userId
                 });
     
-                LoginUserManager.setLoginUser(name, avatarURL, roomID, userId, data.token);
+                LoginUserManager.setLoginUser(name, role, avatarURL, roomID, userId, data.token);
     
                 var loginInfo = {
                     id:userId,
                     name:name,
+                    role: role,
                     avatarURL:avatarURL,
                     roomID:roomID
                 }
@@ -122,12 +124,14 @@ app_router.on('route:defaultRoute', function(actions) {
         if(!_.isEmpty(user) &&
             !_.isEmpty(user.id) &&
             !_.isEmpty(user.name) &&
+            !_.isEmpty(user.role) &&
             !_.isEmpty(user.roomID)){
             
             app.login(
             
                 user.id,
                 user.name,
+                user.role,
                 user.avatarURL,
                 user.roomID,
                 
@@ -191,6 +195,7 @@ app_router.on('route:mainRoute', function(actions) {
             app.login(
                 loginInfo.id,
                 loginInfo.name,
+                loginInfo.role,
                 loginInfo.avatarURL,
                 loginInfo.roomID,
                 function(){
@@ -236,10 +241,12 @@ window.startSpikaIntoDiv = function(){
     var roomId = window.bootOptions.user.roomID;
     var avatarURL = window.bootOptions.user.avatarURL;
     var name = window.bootOptions.user.name;
+    var role = window.bootOptions.user.role
     
     app.login(
         userid,
         name,
+        role,
         avatarURL,
         roomId,
         function(){

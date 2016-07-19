@@ -21,7 +21,7 @@
     <table class="table users">
         
     {{#each seenBy}}
-        <tr><td><img src="{{user.avatarURL}}" height="30px"/></td><td>{{user.name}}</td><td>{{{formatDate at}}}
+        <tr><td><img src="{{user.avatarURL}}" height="30px"/></td><td>{{user.name}} {{ user.role }}</td><td>{{{formatDate at}}}
         </td></tr>
     {{~/each}}
     

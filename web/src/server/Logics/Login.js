@@ -21,6 +21,7 @@ var LoginLogic = {
     execute : function(param,onSuccess,onError){
         
         var name = param.name;
+        var role = param.role;
         var avatarURL = param.avatarURL;
         var roomID = param.roomID;
         var userID = param.userID;
@@ -69,6 +70,7 @@ var LoginLogic = {
                 var newUser = new DatabaseManager.userModel({
                     userID: userID,
                     name: name,
+                    role: role,
                     avatarURL: avatarURL,
                     token: token,
                     created: Utils.now()
@@ -98,6 +100,7 @@ var LoginLogic = {
             
                 user.update({
                     name: name,
+                    role: role,
                     avatarURL: avatarURL,
                     token: token
                 },{},function(err,userResult){

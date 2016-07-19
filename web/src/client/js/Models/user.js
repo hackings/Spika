@@ -9,6 +9,7 @@ var _ = require('lodash');
         defaults: {
             id: "",
             name: "Not specified",
+            role: "No Role defined",
             avatarURL: "Not specified",
             token: ""
         },
@@ -31,6 +32,7 @@ var _ = require('lodash');
         var model = new UserModel({
             id: obj.userID,
             name: obj.name,
+            role: obj.role,
             avatarURL: obj.avatarURL,
             token: obj.token
         });
@@ -52,6 +54,7 @@ var _ = require('lodash');
             var modelUser = new UserModel({
                 id: row.userID,
                 name: row.name,
+                role: row.role,
                 avatarURL: row.avatarURL,
                 token: row.token
             });

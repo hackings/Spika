@@ -3,11 +3,12 @@ var _ = require('lodash');
 var UsersManager = {
     
     rooms:{},
-    addUser: function(id,name,avatarURL,roomID,token){
+    addUser: function(id,name,role,avatarURL,roomID,token){
         
         var user = {
             userID: id,
             name: name,
+            role: role,
             avatarURL: avatarURL,
             roomID: roomID,
             token: token,

@@ -17,6 +17,7 @@ UserModel.prototype.init = function(){
     var userSchema = new mongoose.Schema({
         userID: { type: String, index: true },
         name: String,
+        role: String,
         avatarURL: String,
         token: String,
         created: Number
