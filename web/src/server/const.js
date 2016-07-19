@@ -68,6 +68,9 @@
     Const.gcm_api_key = 'Your GCM Server Key';
     Const.gcm_msg_send_failure = "Unable to send message";
     Const.gcm_msg_send_success = "Message successfully sent !";
+   
+    Const.mysql = { host: 'localhost', user: 'root', 
+      password: 'root', database: 'mda_api_development', port: 3306 }
 
 
     // Exports ----------------------------------------------

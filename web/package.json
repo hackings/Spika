@@ -42,7 +42,8 @@
     "sinon": "^1.17.1",
     "socket.io": "^1.3.5",
     "node-gcm": "latest",
-    "apns": "latest"
+    "apns": "latest",
+    "mysql": "latest"
   },
   "devDependencies": {
     "browserify": "^2.3.0",
