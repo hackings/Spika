@@ -3,7 +3,7 @@ var Const = require('../const.js');
 var apnOptions = { cert: '', key: '', ca: [], pfx: '', 
   passphrase: '', production: false, maxConnections: 1 };
 
-var ApplePushNotification = {
+var APNService = {
 
   sendMessage = function(token,callback){   
     var apnConnection = new apn.Connection(apnOptions);
@@ -20,4 +20,4 @@ var ApplePushNotification = {
 	}
 }
 
-module["exports"] = ApplePushNotification;
+module["exports"] = APNService;

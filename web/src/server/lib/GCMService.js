@@ -1,7 +1,7 @@
 var gcm = require('node-gcm');
 var Const = require('../const.js');
 
-var GCMPushNotification = {
+var GCMService = {
   sendMessage = function(message,registrationId,callback){
 
 	  var message = new gcm.Message({data: {message: message}});
@@ -21,4 +21,4 @@ var GCMPushNotification = {
   }
 }  
 
-module["exports"] = GCMPushNotification;
+module["exports"] = GCMService;
