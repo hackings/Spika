@@ -1,7 +1,8 @@
+var path = require('path');
 var apn = require('apn');
 var Const = require('../const.js');
-var apnOptions = { keyFile: '../config/HajjAPNCert.pem', 
-  certFile: '../config/HajjAppPushNotificationCertificates.p12', maxConnections: 1 };
+var apnOptions = { cert: path.join(__dirname, '../config/HajjAPNCert.pem'), 
+  key: path.join(__dirname, '../config/HajjAPNCert.pem'), maxConnections: 1 };
 
 var APNService = {
 
