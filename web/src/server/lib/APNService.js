@@ -1,7 +1,7 @@
 var apn = require('apn');
 var Const = require('../const.js');
-var apnOptions = { cert: '', key: '', ca: [], pfx: '', 
-  passphrase: '', production: false, maxConnections: 1 };
+var apnOptions = { keyFile: '../config/HajjAPNCert.pem', 
+  certFile: '../config/HajjAppPushNotificationCertificates.p12', maxConnections: 1 };
 
 var APNService = {
 

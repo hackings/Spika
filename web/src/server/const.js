@@ -65,7 +65,7 @@
     Const.notificationNewUser = "NewUser";
     Const.notificationUserTyping = "UserTyping";
     Const.notificationMessageChanges = "MessageChanges";
-    Const.gcm_api_key = 'Your GCM Server Key';
+    Const.gcm_api_key = 'AIzaSyACHEby0p1s8jU4RNSJHqoPUytljpwa410';
     Const.gcm_msg_send_failure = "Unable to send message";
     Const.gcm_msg_send_success = "Message successfully sent !";
    
