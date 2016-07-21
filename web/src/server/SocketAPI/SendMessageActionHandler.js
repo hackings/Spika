@@ -6,6 +6,7 @@ var Utils = require("../lib/Utils");
 var Const = require("../const");
 var SocketHandlerBase = require("./SocketHandlerBase");
 var SocketAPIHandler = require('../SocketAPI/SocketAPIHandler');
+var PushNotification = require("../lib/PushNotification");
 
 var SendMessageActionHandler = function(){
     
@@ -79,8 +80,8 @@ SendMessageActionHandler.prototype.attach = function(io,socket){
                 var userID = param.userID;
             
                 SendMessageLogic.execute(userID,param,function(result){
-                    
-                    
+                  // Push notification if message sent 
+                  PushNotification.sendNotifications(param.attributes, function(){}); 
                     
                 },function(err,code){
                     

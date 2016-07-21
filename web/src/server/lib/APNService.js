@@ -5,9 +5,8 @@ var apnOptions = { cert: '', key: '', ca: [], pfx: '',
 
 var APNService = {
 
-  sendMessage = function(token,callback){   
+  notifyAPN: function(tokens,callback){   
     var apnConnection = new apn.Connection(apnOptions);
-    var myDevice = new apn.Device(token);
     var note = new apn.Notification();
 
     note.expiry = Math.floor(Date.now() / 1000) + 3600;
@@ -15,7 +14,7 @@ var APNService = {
     note.alert = "\uD83D\uDCE7 \u2709 You have a new message";
     note.payload = {'messageFrom': 'MDA'};
 
-    apnConnection.pushNotification(note, myDevice);
+    apnConnection.pushNotification(note, tokens);
 
 	}
 }
