@@ -43,6 +43,7 @@
     Const.resCodeTokenError = 1000027; 
 
     Const.resCodeStickerListFailed = 1000028;
+    Const.resCodeRecentMessagesNoUserID = 1000029;
     
     Const.responsecodeParamError = 2001;
     Const.responsecodeTokenError = 2100;

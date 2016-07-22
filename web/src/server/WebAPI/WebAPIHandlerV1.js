@@ -41,6 +41,7 @@ var WebAPIHandler ={
         router.use("/message/list", require('./MessageListHandler'));
         router.use("/message/latest", require('./LatestMessageListHandler').router);
         router.use("/user/list", require('./UserListHandler'));
+        router.use("/user/recent_messages", require('./RecentMessagesHandler'));
         router.use("/message/sendFile", require('./SendFileAsMessageHandler'));
         router.use("/file/upload", require('./FileUploadHandler'));
         router.use("/file/download", require('./FileDownloadHandler'));

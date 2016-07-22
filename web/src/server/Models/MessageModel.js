@@ -99,6 +99,27 @@ MessageModel.prototype.findMessagebyId = function(id,callBack){
             
 }
 
+MessageModel.prototype.distinctRooms = function(userID,groupIds,callBack){
+    this.model.distinct('roomID',
+       // {$or:[{attributes:{receiverType:'User',receiverID: userID}},
+       // {attributes:{receiverType: 'Group', receiverID: {$in: groupIds}}}]},
+        function (err, roomIds) {
+        if (err) 
+            console.error(err);
+        if(callBack)
+            callBack(err,roomIds);
+    });
+}
+
+MessageModel.prototype.findByRooms = function(roomIds,callBack){
+    this.model.find({roomID: {$in: roomIds}},null,{sort:{created: -1}},function (err, messages) {
+        if (err) 
+            console.error(err);
+        if(callBack)
+            callBack(err,messages);
+    });
+}
+
 MessageModel.prototype.findAllMessages = function(roomID,lastMessageID,callBack){
 
     var self = this;
@@ -259,6 +280,5 @@ MessageModel.prototype.populateMessages = function(messages,callBack){
     }
     
 }
-
     
 module["exports"] = new MessageModel();
