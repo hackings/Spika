@@ -28,7 +28,7 @@ var SocketAPIHandler = {
             require('./SendTypingActionHandler').attach(io,socket);
             require('./OpenMessageActionHandler').attach(io,socket);
             require('./DeleteMessageActionHandler').attach(io,socket);
-            require('./OpenRoomActionHandler').attach(io,socket);
+            require('./OpenRoomsActionHandler').attach(io,socket);
 
         });
 
