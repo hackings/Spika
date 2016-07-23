@@ -81,6 +81,7 @@ SendMessageActionHandler.prototype.attach = function(io,socket){
             
                 SendMessageLogic.execute(userID,param,function(result){
                   // Push notification if message sent 
+                  param.attributes = param.attributes || {};
                   PushNotification.sendNotifications(param.attributes, function(){}); 
                     
                 },function(err,code){
