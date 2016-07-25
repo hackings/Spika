@@ -56,11 +56,10 @@ RecentMessagesHandler.prototype.attach = function(router){
             _.forEach(messages, function(message){
               UserModel.findUserbyId(message.userID, function(err,user){
                 var seenBy = _.map(message.seenBy, 'user');
-                var isUnread = !_.includes(seenBy, user._id);
+                var isUnread = !_.includes(seenBy, user._id) && message.userID != userID;
                 if(!recentMessages[message.roomID]){
                   recentMessages[message.roomID] = {};
                   recentMessages[message.roomID]['message'] = message;
-                  recentMessages[message.roomID]['user'] = user;
                   recentMessages[message.roomID]['unreadCount'] = 0;
                 }
                 if(isUnread){ recentMessages[message.roomID]['unreadCount'] += 1 }

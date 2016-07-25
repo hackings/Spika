@@ -100,9 +100,16 @@ MessageModel.prototype.findMessagebyId = function(id,callBack){
 }
 
 MessageModel.prototype.distinctRooms = function(userID,groupIds,callBack){
+    var groupIds = groupIds.split(",")
+    var gIds = _.map(groupIds, function(v){ return _.toNumber(v) } );
     this.model.distinct('roomID',
-       // {$or:[{attributes:{receiverType:'User',receiverID: userID}},
-       // {attributes:{receiverType: 'Group', receiverID: {$in: groupIds}}}]},
+        { $and: [ { $or: [ 
+                    { 'attributes.receiverType': 'User', 'attributes.receiverID': _.toNumber(userID )},
+                    { 'attributes.receiverType': 'Group', 'attributes.receiverID': { $in: gIds  } },
+                    { userID: _.toNumber(userID) } ]
+                  }
+                ]
+        },
         function (err, roomIds) {
         if (err) 
             console.error(err);
@@ -113,7 +120,7 @@ MessageModel.prototype.distinctRooms = function(userID,groupIds,callBack){
 
 MessageModel.prototype.findByRooms = function(roomIds,callBack){
     this.model.find({roomID: {$in: roomIds}},null,{sort:{created: -1}},function (err, messages) {
-        if (err) 
+      if (err) 
             console.error(err);
         if(callBack)
             callBack(err,messages);
