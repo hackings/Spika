@@ -3,6 +3,9 @@
 Spika is messenger module for Web/iOS/Android with backend. 
 You can include messenger feature to your app or service with minimum code.
 
+Featured Spika Google Push Notificaiton, Apple Push Notification
+Featured Spika recent message activities with unread messages count
+
 For detail please visit our web site.
 http://spikaapp.com
 
